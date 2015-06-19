@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+      
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>  
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  
+	<!-- angularjs -->
+    <script data-require="angular.js@1.3.0-rc2" data-semver="1.3.0-rc2" src="https://code.angularjs.org/1.3.0-rc.2/angular.js"></script>
+		
+    <!-- ui boostrap - for the dropdown button -->
+    <script data-require="ui-bootstrap@*" data-semver="0.11.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    
+    <!-- ngStorage - for localStorage - to persist theme selection -->
+    <script src="ngStorage.min.js"></script>
+    
+    <!-- jdf-ngThemeSwitcher -->
+    <script src="theme_switcher.js"></script>
+	 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/style1.css" />
+    <link rel="stylesheet" href="css/demo.css" />
+    <link href='http://fonts.googleapis.com/css?family=Terminal+Dosis' rel='stylesheet' type='text/css' />
+  
+    <!-- app js -->
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-controller="ThemeController">
+    <theme-switcher urls="[theme.url]"></theme-switcher>
+    
+	<div ng-init="menus = [
+		  {code:'1', icon:'A', fname:'Exceptional Service', lname:'Personalized to your needs'},
+		  {code:'2', icon:'I', fname:'Creative Storytelling', lname:'Advanced use of technology'},
+		  {code:'3', icon:'C', fname:'Creative Storytelling', lname:'Advanced use of technology'},
+		  {code:'4', icon:'S', fname:'Creative Storytelling', lname:'Advanced use of technology'},
+		  {code:'5', icon:'d', fname:'Infographical Education', lname:'Understanding visually'}
+		]">
+		<div class="container">
+      <h1>CSS3 Angular js Animation Menus <span>With CSS3 Transitions &amp; Animations</span></h1>
+      <div class="content">  
+		<div class="btn-group" dropdown>
+      <button type="button" class="btn btn-primary dropdown-toggle">
+        Choose Theme <span class="caret" style="cursor:pointer"></span>
+      </button>
+      <ul class="dropdown-menu" style="cursor:pointer" role="menu">
+        <li ng-repeat="theme in themes"><a ng-href="{{currentLocation}}" ng-click="setTheme(theme)">{{theme.name}}</a></li>
+      </ul>
+    </div>
+        <ul class="ca-menu">
+          <li ng-repeat="menu in menus">
+            <a href="#">
+              <span class="ca-icon"> {{menu.icon}}</span>
+                <div class="ca-content">
+					<h2 class="ca-main">{{menu.fname}}</h2>
+                <h3 class="ca-sub">{{menu.lname}}</h3>
+              </div>
+            </a>
+		</li>
+        </ul>
+      </div>
+    </div>
+	</div>		
+  </body>
+
+</html>
